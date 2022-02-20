@@ -1,7 +1,10 @@
+@import url(//db.onlinewebfonts.com/c/c0cd6ec8ce6d2bbd315a13b62ed13550?family=AdihausDIN);
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "AdihausDIN", Helvetica, arial;
 }
 
 body {
