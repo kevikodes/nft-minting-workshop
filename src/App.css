@@ -1,38 +1,105 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.wrapper {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container {
+  background-color: black;
+  color: white;
+  width: 960px;
+  height: 50vh;
+  border-radius: 10px;
+  padding: 0px 10px 80px 10px;
+  overflow: auto;
+  display: flex;
+  z-index: 10;
+  margin: 20px;
+  position: relative;
+}
+
+.left {
+  width: 50%;
+  padding: 10px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.nft-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 20px;
+}
+
+.right {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.content > p {
+  color: rgb(165, 165, 165);
+}
+
+.mint {
+  background-color: white;
+  color: black;
+  border: none;
+  outline: none;
+  margin: 20px 20px 0 0;
+  padding: 10px;
+  border-radius: 20px;
+  width: 100px;
+  cursor: pointer;
+}
+
+.reset {
+  background-color: black;
   color: white;
+  border: 1px solid white;
+  outline: none;
+  margin: 20px 20px 0 0;
+  padding: 10px;
+  border-radius: 20px;
+  width: 150px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer {
+  background-color: blue;
+  position: absolute;
+  text-align: center;
+  color: white;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  right: 0;
 }
