@@ -49,7 +49,7 @@ function App() {
                 <button
                   className="mint"
                   onClick={authenticate}
-                  style={{ width: "200px" }}
+                  style={{ width: "250px" }}
                 >
                   {isAuthenticating ? "Authenticating..." : "Connect"}
                 </button>
