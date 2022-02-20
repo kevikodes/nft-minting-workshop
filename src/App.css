@@ -1,10 +1,20 @@
 .wrapper {
-  background-color: aqua;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
+}
+
+.video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .container {
@@ -15,11 +25,23 @@
   border-radius: 20px;
   padding: 10px;
   display: flex;
+  z-index: 10;
+  margin: 20px;
 }
 
 .left {
   width: 50%;
   padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nft-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: 20px;
 }
 
 .right {
@@ -27,4 +49,41 @@
   display: flex;
   align-items: center;
   padding: 10px;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.content > p {
+  color: rgb(165, 165, 165);
+}
+
+.mint {
+  background-color: white;
+  color: black;
+  border: none;
+  outline: none;
+  margin: 20px 20px 0 0;
+  padding: 10px;
+  border-radius: 20px;
+  width: 100px;
+  cursor: pointer;
+}
+
+.reset {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  outline: none;
+  margin: 20px 20px 0 0;
+  padding: 10px;
+  border-radius: 20px;
+  width: 150px;
+  cursor: pointer;
 }
