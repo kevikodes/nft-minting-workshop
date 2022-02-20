@@ -3,10 +3,10 @@ import backgroundVideo from "./assets/background.mp4";
 import nftVideo from "./assets/nftvideo.mp4";
 import mfer from "./assets/mfer.png";
 import { useMoralis } from "react-moralis";
-import { useEffect } from "react";
 
 function App() {
-  const { authenticate, isAuthenticated, user, logout } = useMoralis();
+  const { authenticate, isAuthenticated, logout, isAuthenticating } =
+    useMoralis();
 
   return (
     <div className="wrapper">
@@ -51,7 +51,7 @@ function App() {
                   onClick={authenticate}
                   style={{ width: "200px" }}
                 >
-                  Connect Wallet
+                  {isAuthenticating ? "Authenticating..." : "Connect"}
                 </button>
               ) : (
                 <>
@@ -61,7 +61,7 @@ function App() {
                   <button
                     className="mint"
                     onClick={logout}
-                    style={{ width: "200px", marginLeft: "40px" }}
+                    style={{ width: "200px" }}
                   >
                     Logout
                   </button>
