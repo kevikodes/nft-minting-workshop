@@ -1,4 +1,5 @@
 import "./App.css";
+import backgroundVideo from "./assets/background.mp4";
 
 function App() {
   return (
