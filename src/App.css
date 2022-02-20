@@ -23,7 +23,7 @@
   width: 960px;
   height: 50vh;
   border-radius: 10px;
-  padding: 0px 10px 80px 10px;
+  padding: 0px 10px 50px 10px;
   overflow: auto;
   display: flex;
   z-index: 10;
@@ -33,24 +33,33 @@
 
 .left {
   width: 50%;
-  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  padding: 30px;
+}
+
+.left > img {
+  border-radius: 50px;
+  object-fit: cover;
+  overflow: hidden;
 }
 
 .nft-video {
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  padding: 20px;
+  overflow: hidden;
 }
 
 .right {
   width: 50%;
   display: flex;
   align-items: center;
-  padding: 10px;
 }
 
 .content {
@@ -59,15 +68,21 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 .content > p {
-  color: rgb(165, 165, 165);
+  color: #fdd3a9;
+  font-size: 14px;
+}
+
+.content > h1 {
+  letter-spacing: 8px;
+  color: #ffb66e;
 }
 
 .mint {
-  background-color: white;
+  background-color: #ffb66e;
   color: black;
   border: none;
   outline: none;
@@ -76,25 +91,41 @@
   border-radius: 20px;
   width: 100px;
   cursor: pointer;
+  font-weight: bolder;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.mint:hover {
+  background-color: #fdd3a9;
+  color: black;
 }
 
 .reset {
   background-color: black;
-  color: white;
-  border: 1px solid white;
+  color: #ffb66e;
+  border: 1px solid #ffb66e;
   outline: none;
   margin: 20px 20px 0 0;
   padding: 10px;
   border-radius: 20px;
   width: 150px;
   cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.reset:hover {
+  background-color: #ffb66e;
+  color: black;
 }
 
 .footer {
-  background-color: blue;
+  background-color: #ffb66e;
   position: absolute;
   text-align: center;
-  color: white;
+  color: black;
   height: 40px;
   display: flex;
   align-items: center;
@@ -102,4 +133,5 @@
   left: 0;
   justify-content: center;
   right: 0;
+  text-transform: uppercase;
 }

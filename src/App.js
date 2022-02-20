@@ -1,6 +1,7 @@
 import "./App.css";
 import backgroundVideo from "./assets/background.mp4";
 import nftVideo from "./assets/nftvideo.mp4";
+import mfer from "./assets/mfer.png";
 
 function App() {
   return (
@@ -17,13 +18,20 @@ function App() {
       />
       <div className="container">
         <div className="left">
-          <video
+          {/* <video
             className="nft-video"
             autoPlay
             loop
             playsInline
             muted
             src={nftVideo}
+            width="600"
+            height="300"
+          /> */}
+          <img
+            className="nft-video"
+            src={mfer}
+            alt="mfer"
             width="600"
             height="300"
           />
