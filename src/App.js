@@ -1,6 +1,5 @@
 import "./App.css";
 import backgroundVideo from "./assets/background.mp4";
-import nftVideo from "./assets/nftvideo.mp4";
 import mfer from "./assets/mfer.png";
 import { useMoralis } from "react-moralis";
 import { HashLoader } from "react-spinners";
@@ -33,7 +32,7 @@ function App() {
       setSupply(supply);
       console.log(supply);
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, enableWeb3]);
 
   const mint = async () => {
     //mint the nft with Moralis
@@ -114,14 +113,8 @@ function App() {
                   <button className="mint" onClick={() => mint()}>
                     Mint
                   </button>
-                  <button className="reset">Start Over</button>
-                  <br />
-                  <button
-                    className="mint"
-                    onClick={logout}
-                    style={{ width: "275px" }}
-                  >
-                    Logout
+                  <button className="reset" onClick={logout}>
+                    Start Over
                   </button>
                 </>
               )}
