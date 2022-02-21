@@ -6,7 +6,6 @@ import { HashLoader } from "react-spinners";
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import abi from "./contracts/contract.json";
-import { Moralis } from "moralis";
 
 const contractAddress = "0x2A015FA98fBA8B7f580fA00B9166b81e9d94EECF";
 
@@ -19,6 +18,7 @@ function App() {
     isAuthenticating,
     authError,
     enableWeb3,
+    Moralis,
   } = useMoralis();
 
   useEffect(async () => {
