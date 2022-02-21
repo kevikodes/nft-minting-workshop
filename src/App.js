@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import abi from "./contracts/contract.json";
 
-const contractAddress = "0x2A015FA98fBA8B7f580fA00B9166b81e9d94EECF";
+const contractAddress = "0xf51F1627398d60acC073CAC7e4D017F6c2CB2155";
 
 function App() {
   const [supply, setSupply] = useState(0);
@@ -43,6 +43,7 @@ function App() {
       contractAddress,
       functionName: "mint",
       abi,
+      msgValue: ethers.utils.parseEther("0.001"),
       params: {
         amount: 1,
       },
@@ -154,7 +155,9 @@ function App() {
                     </button>
                     <button
                       className="reset"
-                      onClick={() => (window.location.reload(), logout())}
+                      onClick={() => (
+                        setIsCompleted(false), setInProgress(false), logout()
+                      )}
                     >
                       Start Over
                     </button>
