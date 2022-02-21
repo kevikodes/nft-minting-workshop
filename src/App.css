@@ -131,7 +131,16 @@
   align-items: center;
   bottom: 0;
   left: 0;
-  justify-content: center;
   right: 0;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error {
+  color: rgb(255, 113, 113);
+  font-size: 16px;
+  margin: 20px 0;
+  font-weight: bolder;
 }
