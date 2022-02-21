@@ -3,10 +3,37 @@ import backgroundVideo from "./assets/background.mp4";
 import nftVideo from "./assets/nftvideo.mp4";
 import mfer from "./assets/mfer.png";
 import { useMoralis } from "react-moralis";
+import { HashLoader } from "react-spinners";
+import { useEffect, useState } from "react";
+import { ethers } from "ethers";
+import abi from "./contracts/contract.json";
+
+const contractAddress = "0x2A015FA98fBA8B7f580fA00B9166b81e9d94EECF";
 
 function App() {
-  const { authenticate, isAuthenticated, logout, isAuthenticating } =
-    useMoralis();
+  const [supply, setSupply] = useState("");
+  const {
+    authenticate,
+    isAuthenticated,
+    logout,
+    isAuthenticating,
+    authError,
+    enableWeb3,
+  } = useMoralis();
+
+  useEffect(async () => {
+    if (isAuthenticated) {
+      //connect the contract
+      const web3Provider = await enableWeb3();
+      const contract = new ethers.Contract(contractAddress, abi, web3Provider);
+      console.log(contract);
+      let supply = await contract.totalSupply(0);
+      setSupply(supply);
+      console.log(supply.toString());
+    }
+  }, [isAuthenticated]);
+
+  const mint = () => {};
 
   return (
     <div className="wrapper">
@@ -43,15 +70,30 @@ function App() {
         <div className="right">
           <div className="content">
             <h1>Mfer #3424</h1>
-            <p>0/100 Minted</p>
+            <p>{supply.toString()} minted /100</p>
             <div className="buttons">
               {!isAuthenticated ? (
                 <button
                   className="mint"
                   onClick={authenticate}
-                  style={{ width: "250px" }}
+                  style={{ width: "275px" }}
                 >
-                  {isAuthenticating ? "Authenticating..." : "Connect"}
+                  {isAuthenticating ? (
+                    <div style={{ display: "flex" }}>
+                      <p
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          flex: 1,
+                        }}
+                      >
+                        Authenticating...
+                      </p>
+                      <HashLoader height={1} width={1} size={20} />
+                    </div>
+                  ) : (
+                    "Connect"
+                  )}
                 </button>
               ) : (
                 <>
@@ -61,12 +103,13 @@ function App() {
                   <button
                     className="mint"
                     onClick={logout}
-                    style={{ width: "200px" }}
+                    style={{ width: "275px" }}
                   >
                     Logout
                   </button>
                 </>
               )}
+              <p className="error">{authError ? authError.message : ""}</p>
             </div>
           </div>
         </div>
