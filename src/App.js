@@ -11,7 +11,7 @@ import abi from "./contracts/contract.json";
 const contractAddress = "0x2A015FA98fBA8B7f580fA00B9166b81e9d94EECF";
 
 function App() {
-  const [supply, setSupply] = useState("");
+  const [supply, setSupply] = useState(0);
   const {
     authenticate,
     isAuthenticated,
@@ -28,8 +28,8 @@ function App() {
       const contract = new ethers.Contract(contractAddress, abi, web3Provider);
       console.log(contract);
       let supply = await contract.totalSupply(0);
-      setSupply(supply);
-      console.log(supply.toString());
+      supply = supply.toNumber();
+      console.log(supply);
     }
   }, [isAuthenticated]);
 
