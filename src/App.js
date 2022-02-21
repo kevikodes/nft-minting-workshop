@@ -7,6 +7,7 @@ import { HashLoader } from "react-spinners";
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import abi from "./contracts/contract.json";
+import { Moralis } from "moralis";
 
 const contractAddress = "0x2A015FA98fBA8B7f580fA00B9166b81e9d94EECF";
 
@@ -29,11 +30,24 @@ function App() {
       console.log(contract);
       let supply = await contract.totalSupply(0);
       supply = supply.toNumber();
+      setSupply(supply);
       console.log(supply);
     }
   }, [isAuthenticated]);
 
-  const mint = () => {};
+  const mint = async () => {
+    //mint the nft with Moralis
+    let mintOptions = {
+      contractAddress,
+      functionName: "mint",
+      abi,
+      params: {
+        amount: 1,
+      },
+    };
+    const transaction = await Moralis.executeFunction(mintOptions);
+    console.log(transaction);
+  };
 
   return (
     <div className="wrapper">
@@ -70,7 +84,7 @@ function App() {
         <div className="right">
           <div className="content">
             <h1>Mfer #3424</h1>
-            <p>{supply.toString()} minted /100</p>
+            <p>{supply} minted /100</p>
             <div className="buttons">
               {!isAuthenticated ? (
                 <button
@@ -97,7 +111,9 @@ function App() {
                 </button>
               ) : (
                 <>
-                  <button className="mint">Mint</button>
+                  <button className="mint" onClick={() => mint()}>
+                    Mint
+                  </button>
                   <button className="reset">Start Over</button>
                   <br />
                   <button
