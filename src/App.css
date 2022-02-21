@@ -144,3 +144,25 @@
   margin: 20px 0;
   font-weight: bolder;
 }
+
+.success {
+  color: rgb(9, 255, 0);
+  font-size: 16px;
+  margin: 20px 0;
+  font-weight: bolder;
+}
+
+.completeBtn {
+  background-color: #ffb66e;
+  color: black;
+  border: none;
+  outline: none;
+  margin: 20px 20px 0 0;
+  padding: 10px;
+  border-radius: 20px;
+  width: 200px;
+  cursor: pointer;
+  font-weight: bolder;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
